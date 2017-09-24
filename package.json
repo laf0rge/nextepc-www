@@ -1,0 +1,32 @@
+{
+  "name": "nextein-www",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": "https://github.com/elmasse/nextein-www",
+  "scripts": {
+    "dev": "nextein",
+    "export": "nextein build && nextein export",
+    "deploy": "cd out && now alias --token=$NOW $(now --static --no-clipboard --token=$NOW --public) nextein",
+    "build": "nextein build",
+    "start": "NODE_ENV=production nextein"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-plugin-emotion": "^7.2.2",
+    "emotion": "^7.2.2",
+    "emotion-server": "^7.2.2",
+    "next": "^3.2.2",
+    "nextein": "file:../nextein",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-emotion": "^7.2.2",
+    "react-ga": "^2.2.0",
+    "react-highlight": "^0.10.0"
+  },
+  "devDependencies": {
+    "now": "^8.3.6"
+  }
+}
