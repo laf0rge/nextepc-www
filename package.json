@@ -3,15 +3,14 @@
   "version": "1.0.0",
   "description": "NextEPC Website",
   "main": "index.js",
-  "repository": "https://github.com/elmasse/nextein-www",
+  "repository": "https://github.com/acetcom/nextepc-www",
   "engines": {
     "node": "8.5.0"
   },
   "scripts": {
     "dev": "nextein",
     "export": "nextein build && nextein export",
-    "deploy": "cd out && now alias --token=$NOW $(now --static --no-clipboard --token=$NOW --public) nextein",
-    "start": "NODE_ENV=production nextein"
+    "deploy": "cd out && now alias --token=$NOW $(now --static --no-clipboard --token=$NOW --public) nextepc"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +20,7 @@
     "emotion": "^7.2.2",
     "emotion-server": "^7.2.2",
     "next": "^3.2.2",
-    "nextein": "file:../nextein",
+    "nextein": "1.0.0-beta21",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-emotion": "^7.2.2",
