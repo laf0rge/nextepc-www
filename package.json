@@ -1,14 +1,16 @@
 {
-  "name": "nextein-www",
+  "name": "nextepc-www",
   "version": "1.0.0",
-  "description": "",
+  "description": "NextEPC Website",
   "main": "index.js",
   "repository": "https://github.com/elmasse/nextein-www",
+  "engines": {
+    "node": "8.5.0"
+  },
   "scripts": {
     "dev": "nextein",
     "export": "nextein build && nextein export",
     "deploy": "cd out && now alias --token=$NOW $(now --static --no-clipboard --token=$NOW --public) nextein",
-    "build": "nextein build",
     "start": "NODE_ENV=production nextein"
   },
   "keywords": [],
