@@ -4,7 +4,7 @@ order: 4
 page: guides
 ---
 
-Now, we will start setting up the network to connect the **eNodeB** and **Mobile** to the installed **NextEPC**. For easy configuration, _MME, HSS, SGW, PGW, and PCRF_ will be setting up on a single host.
+Now, we will start setting up the network to connect the **eNodeB** with the installed **NextEPC**. For easy configuration, _MME, HSS, SGW, PGW, and PCRF_ will be setting up on a single host.
 
 ## IP Configuration
 
