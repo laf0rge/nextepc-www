@@ -4,135 +4,64 @@ order: 1
 page: guides
 ---
 
-This post will guide you on how to get started with **Nextein**. You'll need to install **Node.js** if you don't have it installed already. To get the latest Node.js version please visit the official Node.js website: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+This post will guide you on how to get started with **NextEPC**. To date, **NextEPC** has been compiled and tested on GNU/Linux distributions(Debian, Ubuntu, Fedora, OpenSUSE) and FreeBSD.
 
-## Create an npm project
+We will explain the starting guide using **Ubuntu 16.04 LTS (64bit)**. You'll need to install **Ubuntu** if you don't have it installed already. To get the latest Ubuntu version please visit the official Ubuntu website: [https://www.ubuntu.com/download/](https://www.ubuntu.com/download/). 
 
-The first step is to use **npm** to create a project in order to install all dependencies:
+## Install the dependencies for building the source
 
-```bash
-mkdir my-blog  && cd my-blog  && npm init -y
-
-```
-## Install the dependencies
-
-For a very simple project we will need at least to install **Nextein**, **Next.js** and **React**. You can keep adding more as you need them later.
+The first step is to use **apt-get** to install all depedencies.
 
 ```bash
-npm install --save next react react-dom nextein@beta
-
+sudo apt-get -y install gcc gdb make autoconf libtool pkg-config git
+sudo apt-get -y install libsctp-dev libssl-dev libmongoc-dev libbson-dev
+sudo apt-get -y install mongodb
 ```
-## Create your first page and post
-
-**Next.js** projects follow a certain structure. Before jumping into the components, **Nextein** requires creating a `next.config.js` file. This configuration file uses a wrapper for **Next.js** configuration.
-
-```js
-const nexteinConfig = require('nextein/config').default
-
-module.exports = nexteinConfig({
-  // place your next config in here!
-})
-```
-
-**Nextein** follows **Next.js** folder structure. Let's begin creating a `/pages` folder with an `index.js` with the following content:
-
-```js
-import React from 'react'
-import withPosts from 'nextein/posts'
-import { Content } from 'nextein/post'
-
-export default withPosts(({ posts }) => {
-  return (
-    <main>
-    {
-      posts.map((post, index) => (        
-        <article key={`post-${index}`}>
-          <h1>{post.data.title}</h1>
-          <Content {...post} />
-        </article>
-      ))
-    }
-    </main>
-  )
-})
-
-```
-
-This is our first `Page` component. THe HOC (High Order Component) `withPosts` will be passing a list of `posts` to be rendered. These posts will be read from the `/posts` folder. Let's start by creating a simple post file `my-post.md` with the following content:
-
-```md
----
-title: My First Post
----
-
-This is the content of the first post. Hello there! 
-```
-
-Now that we have our `/pages/index.js` component, the `/posts/my-post.md` content and the root config `next.config.js`, we are ready to start our dev server rigth away. To do so, we need to edit the `package.json` file and add the following to the `scripts` section:
-
-```json
-{
-  "scripts": {
-    "dev": "nextein"
-  }
-}
-
-```
-Finally we can start our dev server by running the following command:
+## Retrieve the latest version of the source package
 
 ```bash
-npm run dev
+git clone https://github.com/acetcom/nextepc
+```
+## Install the freeDiameter
+
+The **freeDiameter** does not provide a binary package for **Ubuntu 16.04 LTS (Trusty)**. You can install it by our binary package.
+
+```bash
+cd nextepc
+dpkg -i support/freeDiameter/packages/ubuntu/dist/trusty/universe/binary-amd64/Package.deb
 ```
 
-This will start a server available on [http://localhost:3000](http://localhost:3000).
+or compile it manually.
+```bash
+sudo apt-get -y install mercurial cmake bison flex libgnutls-dev libgcrypt-dev libidn11-dev
+hg clone http://www.freediameter.net/hg/freeDiameter
+mkdir fDbuild
+cd fDbuild
+cmake ../freeDiameter
+make
+sudo make install
+```
+## Configure the build
 
-## Creating a single post Page
-
-In the previous example the `pages/index.js` component rendered all files under `posts` folder. Now we want to create a `Page` component to render only the post content.
-
-Let's modify first the `index.js` to include a link for the post:
-
-```js
-import React from 'react'
-import withPosts from 'nextein/posts'
-import { Content } from 'nextein/post'
-
-export default withPosts(({ posts }) => {
-  return (
-    <main>
-    {
-      posts.map((post, index) => (        
-        <article key={`post-${index}`}>
-          <h1><a href={post.data.url}>{post.data.title}</a></h1>
-          <Content {...post} />
-        </article>
-      ))
-    }
-    </main>
-  )
-})
-
+```bash
+cd nextepc
+test -f configure || autoreconf -iv
+CFLAGS='-g3' ./configure --prefix=`pwd`/install
 ```
 
-The post url is generated automatically based on the file name and, if specified, the category with the form of `/{category}/{file-name}`.
+## Compiling
 
-As mentioned before, we need a component to render our post. The default configuration is having a file  `/pages/post.js`. Let's create it with the following content:
+Hopefully, once you have completed the autotools configuration, you only need to run:
 
-```js
-import React from  'react'
-import withPost, { Content } from 'nextein/post'
-
-export default withPost(({ post }) => {
-  return (
-    <main>
-      <article>
-        <h1>{post.data.title}</h1>
-        <Content {...post} />
-      </article>
-    </main>
-  )
-})
-
+```bash
+make -j `nproc`
 ```
 
-The `withPost` HOC will pass the post information to be rendered.
+## Installing
+
+Once the compilation is complete, you can install in the configured paths with:
+
+```bash
+make install
+```
+(this might require sudo depending on the configured target directories)
