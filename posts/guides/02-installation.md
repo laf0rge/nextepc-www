@@ -1,12 +1,12 @@
 ---
-title: Getting Started
-order: 1
+title: Installation
+order: 2
 page: guides
 ---
 
-This post will guide you on how to get started with **NextEPC**. To date, **NextEPC** has been compiled and tested on GNU/Linux distributions(Debian, Ubuntu, Fedora, OpenSUSE) and FreeBSD.
+This post will guide you on how to get installed with **NextEPC**. To date, **NextEPC** has been compiled and tested on GNU/Linux distributions(Debian, Ubuntu, Fedora, OpenSUSE) and FreeBSD.
 
-We will explain the starting guide using **Ubuntu 16.04 LTS (64bit)**. You'll need to install **Ubuntu** if you don't have it installed already. To get the latest Ubuntu version please visit the official Ubuntu website: [https://www.ubuntu.com/download/](https://www.ubuntu.com/download/). 
+We will describe the installation guide using **Ubuntu 16.04 LTS (64bit)**. You'll need to install **Ubuntu** if you don't have it installed already. To get the latest Ubuntu version please visit the official Ubuntu website: [https://www.ubuntu.com/download/](https://www.ubuntu.com/download/). 
 
 ## Install the dependencies for building the source
 
@@ -24,7 +24,7 @@ git clone https://github.com/acetcom/nextepc
 ```
 ## Install the freeDiameter
 
-The **freeDiameter** does not provide a binary package for **Ubuntu 16.04 LTS (Trusty)**. You can install it by our binary package.
+The **freeDiameter** does not provide a binary package for **Ubuntu 16.04 LTS (Trusty)**. You can install it by our binary package
 
 ```bash
 cd nextepc
@@ -65,3 +65,4 @@ Once the compilation is complete, you can install in the configured paths with:
 make install
 ```
 (this might require sudo depending on the configured target directories)
+

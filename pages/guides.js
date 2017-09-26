@@ -52,14 +52,14 @@ class Guide extends Component {
     return (
       <Main>
         <Head>
-          <title>Nextein | Guides | {post.data.title}</title>
+          <title>NextEPC | Guides | {post.data.title}</title>
         </Head>
 
         <MainNavigation showHome title="guides" styles={{ width: `100vw` }}/>
         
         <Section>
           <Side>
-            {/* <Logo><a href="/">Nextein</a><Light>/guides</Light></Logo> */}
+            {/* <Logo><a href="/">NextEPC</a><Light>/guides</Light></Logo> */}
             <Navigation guides={guides} post={post} />
           </Side>
           <Article>

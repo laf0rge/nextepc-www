@@ -50,7 +50,7 @@ class Doc extends Component {
     return (
       <Main>
         <Head>
-          <title>Nextein | Docs | {post.data.title}</title>
+          <title>NextEPC | Docs | {post.data.title}</title>
         </Head>
 
         <MainNavigation showHome title="documentation" styles={{ width: `100vw` }}/>
