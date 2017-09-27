@@ -47,9 +47,7 @@ npm run start
 
 Use **Web Browser** to connect it. _http://localhost:3000_
 
-```txt
-Username : admin
-Password : 1423
-```
+  * Username : admin
+  * Password : 1423
 
 Then, you can change your password in _Account_ Menu.

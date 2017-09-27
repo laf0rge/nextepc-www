@@ -10,12 +10,10 @@ There is only one setting for this guide. The _Subscriber Information_ required 
 
 Connect http://localhost:3000 using Web Browser.
 
-```txt
-1. Go to Subscriber Menu
-2. Click + Button to add Subscriber Information
-3. Fill IMSI, Security(K, OP, AMF), APN in the Form
-4. Click the `SAVE` Button
-```
+  * Go to Subscriber Menu
+  * Click + Button to add Subscriber Information
+  * Fill IMSI, Security(K, OP, AMF), APN in the Form
+  * Click the `SAVE` Button
 
 ## Running NextEPC
 
