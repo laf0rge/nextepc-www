@@ -5,7 +5,7 @@ page: docs
 ---
 
 
-If you use another vendor's HSS or PCRF product, we must generate a key and certificate for the TLS connection.
+If you use another vendor's HSS or PCRF product, you must generate a key and certificate for the TLS connection.
 
 ## Generate Key and Certificate
 
