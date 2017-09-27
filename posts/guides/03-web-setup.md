@@ -4,9 +4,11 @@ order: 3
 page: guides
 ---
 
-In **NextEPC**, the subscriber information is stored in **Mongo DB** server and other **LTE-related settings** are made in **JSON** format and stored in **nextepc.conf**.
+NextEPC is configured with `Subscriber Information` managed in **Mongo DB** and **Files** made in _JSON_ format.
 
-To register the subscriber information first, you need to install the **Web User Interface** to save it on **Mongo DB** server.
+The configuration file made in _JSON_ format can be modified using a general editor such as vi or emacs, but `Subscriber Information` can be managed properly using _Database Command_.
+
+NextEPC provides **Web User Interface** to manage `Subscriber Information` in an easy way without using _Database Command_. Let's how to install it from now on.
 
 ## Install Node.js and NPM
 
@@ -18,7 +20,7 @@ Or, you can install _Node.js_ and _NPM_ on **Ubuntu** as follows:
 ```bash
 sudo apt-get -y install curl
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo apt-get -y install nodejs
 ```
 
 ## Install the dependencies for building the source
@@ -35,11 +37,10 @@ npm install
 npm run build
 ```
 
-## Running Mongo DB server & Web Server
+## Running Web Server
 
 ```bash
-sudo /etc/init.d/mongodb start
 npm run start
 ```
 
-Use a web browser to connect it. _(http://localhost:3000)_
+Use **Web Browser** to connect it. _http://localhost:3000_
