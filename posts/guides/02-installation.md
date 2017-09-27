@@ -46,7 +46,7 @@ sudo make install
 ```bash
 cd nextepc
 test -f configure || autoreconf -iv
-CFLAGS='-g3' ./configure --prefix=`pwd`/install
+CFLAGS='-O2' ./configure --prefix=`pwd`/install
 ```
 
 ## Compiling
