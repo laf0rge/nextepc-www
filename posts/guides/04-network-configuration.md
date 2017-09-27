@@ -6,7 +6,7 @@ page: guides
 
 NextEPC consists of five nodes such as _MME, SGW, PGW, HSS and PCRF_. Basically, each node can be installed in a physically separate host or in the same host.
 
-We will run the five nodes that make up NextEPC in a **Single Host**. This is because it is the easiest way to build an `LTE environment` with NextEPC.
+We will run these five nodes that make up NextEPC in a **Single Host**. The reason is why it is the easiest way to understand how to configure NextEPC network.
 
 ## IP Configuration
 

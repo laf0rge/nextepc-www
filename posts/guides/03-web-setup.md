@@ -4,11 +4,11 @@ order: 3
 page: guides
 ---
 
-NextEPC is configured with `Subscriber Information` managed in **Mongo DB** and **Files** made in _JSON_ format.
+NextEPC is configured with **Mongo DB**, which manages _Subscriber Information_ mainly, and **Configuration File** made in _JSON_ format.
 
-The configuration file made in _JSON_ format can be modified using a general editor such as vi or emacs, but `Subscriber Information` can be managed properly using _Database Command_.
+The configuration file can be modified using a general editor such as vi or emacs, but _Subscriber Information_ can be managed properly using _Mongo DB Client_.
 
-NextEPC provides **Web User Interface** to manage `Subscriber Information` in an easy way without using _Database Command_. Let's how to install it from now on.
+NextEPC provides **Web User Interface** solely designed to manage _Subscriber Information_ in an easy way without using _Mongo DB Client_. Let's how to install it from now on.
 
 ## Install Node.js and NPM
 
@@ -43,4 +43,13 @@ npm run build
 npm run start
 ```
 
+## Login with default account
+
 Use **Web Browser** to connect it. _http://localhost:3000_
+
+```txt
+Username : admin
+Password : 1423
+```
+
+Then, you can change your password in _Account_ Menu.

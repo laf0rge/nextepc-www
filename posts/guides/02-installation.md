@@ -27,8 +27,8 @@ git clone https://github.com/acetcom/nextepc
 The **freeDiameter** does not provide a binary package for **Ubuntu 16.04 LTS (Xenial)**. You can install it by our binary package
 
 ```bash
-dpkg -i nextepc/support/freeDiameter/packages/ubuntu/xenial/freediameter-common_1.2.1_amd64.deb
-dpkg -i nextepc/support/freeDiameter/packages/ubuntu/xenial/freediameter-dev_1.2.1_amd64.deb
+sudo dpkg -i nextepc/support/freeDiameter/packages/ubuntu/xenial/freediameter-common_1.2.1_amd64.deb
+sudo dpkg -i nextepc/support/freeDiameter/packages/ubuntu/xenial/freediameter-dev_1.2.1_amd64.deb
 ```
 
 or compile it manually.
