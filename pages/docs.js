@@ -154,7 +154,7 @@ const Paragraph = styled('p')`
 `
 
 const CodeBlock = styled('pre')`
-  max-width:700px;
+  max-width:725px;
   font-size: 1.2em;
   padding: 5px 20px;
   background: #f2f2f2;

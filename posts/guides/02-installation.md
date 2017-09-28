@@ -14,8 +14,8 @@ The first step is to use **apt-get** to install all depedencies.
 
 ```bash
 sudo apt-get -y install gcc gdb make autoconf libtool pkg-config git
-sudo apt-get -y install libsctp-dev libgnutls-dev libgcrypt-dev libssl-dev libmongoc-dev libbson-dev
-sudo apt-get -y install mongodb
+sudo apt-get -y install libsctp-dev libgnutls-dev libgcrypt-dev
+sudo apt-get -y install libssl-dev libmongoc-dev libbson-dev mongodb
 ```
 ## Retrieve the latest version of the source package
 
@@ -27,8 +27,9 @@ git clone https://github.com/acetcom/nextepc
 The **freeDiameter** does not provide a binary package for **Ubuntu 16.04 LTS (Xenial)**. You can install it by our binary package
 
 ```bash
-sudo dpkg -i nextepc/support/freeDiameter/packages/ubuntu/xenial/freediameter-common_1.2.1_amd64.deb
-sudo dpkg -i nextepc/support/freeDiameter/packages/ubuntu/xenial/freediameter-dev_1.2.1_amd64.deb
+cd nextepc/support/freeDiameter/packages/ubuntu/xenial
+sudo dpkg -i freediameter-common_1.2.1_amd64.deb
+sudo dpkg -i freediameter-dev_1.2.1_amd64.deb
 ```
 
 or compile it manually.

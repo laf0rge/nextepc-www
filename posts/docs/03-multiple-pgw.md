@@ -14,7 +14,7 @@ All configuration is same except PGW field.
 ```json
 {
   DB_URI : "mongodb://localhost/nextepc",
-  LOG_PATH : "/Users/acetcom/Documents/git/nextepc/install/var/log/nextepc.log",
+  LOG_PATH : "/var/log/nextepc.log",
   TRACE:
   {
     S1AP: 1,
@@ -26,7 +26,7 @@ All configuration is same except PGW field.
 
   MME :
   {
-    FD_CONF_PATH : "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/mme.conf",
+    FD_CONF_PATH : "/etc/freeDiameter/mme.conf",
 
     DEFAULT_PAGING_DRX : "v64",
 #RELATIVE_CAPACITY : 255,
@@ -64,7 +64,7 @@ All configuration is same except PGW field.
 
   HSS :
   {
-    FD_CONF_PATH : "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/hss.conf",
+    FD_CONF_PATH : "/etc/freeDiameter/hss.conf",
   }
 
   SGW :
@@ -90,7 +90,7 @@ All configuration is same except PGW field.
 
   PCRF :
   {
-    FD_CONF_PATH : "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/pcrf.conf",
+    FD_CONF_PATH : "/etc/freeDiameter/pcrf.conf",
   }
 
 }
@@ -124,7 +124,7 @@ Note that default PGW can be set in case PGW IP field is omitted in Subscriber I
 
 ```json
 {
-  LOG_PATH : "/Users/acetcom/Documents/git/nextepc/install/var/log/nextepc.log",
+  LOG_PATH : "/var/log/nextepc.log",
   TRACE:
   {
     GTP: 1,
@@ -133,7 +133,7 @@ Note that default PGW can be set in case PGW IP field is omitted in Subscriber I
 
   PGW :
   {
-    FD_CONF_PATH : "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/pgw.conf",
+    FD_CONF_PATH : "/etc/freeDiameter/pgw.conf",
 
     NETWORK :
     {
@@ -170,7 +170,7 @@ Run the first PGW.
 
 ```json
 {
-  LOG_PATH : "/Users/acetcom/Documents/git/nextepc/install/var/log/nextepc.log",
+  LOG_PATH : "/var/log/nextepc.log",
   TRACE:
   {
     GTP: 1,
@@ -179,7 +179,7 @@ Run the first PGW.
 
   PGW :
   {
-    FD_CONF_PATH : "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/pgw.conf",
+    FD_CONF_PATH : "/etc/freeDiameter/pgw.conf",
 
     NETWORK :
     {

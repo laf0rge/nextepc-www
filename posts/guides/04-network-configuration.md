@@ -39,7 +39,7 @@ For example, if you want the IP aliasing address of *PGW* to be _10.1.35.254_, `
 ```json
   PGW :
   {
-    FD_CONF_PATH : "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiamete
+    FD_CONF_PATH : "/etc/freeDiameter
 
     NETWORK :
     {

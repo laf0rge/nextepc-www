@@ -14,7 +14,7 @@ All configuration is same except SGW field. See the configuration file if SGW's 
 ```json
 {
   DB_URI : "mongodb://localhost/nextepc",
-  LOG_PATH : "/Users/acetcom/Documents/git/nextepc/install/var/log/nextepc.log",
+  LOG_PATH : "/var/log/nextepc.log",
   TRACE:
   {
     S1AP: 1,
@@ -26,7 +26,7 @@ All configuration is same except SGW field. See the configuration file if SGW's 
 
   MME :
   {
-    FD_CONF_PATH : "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/mme.conf",
+    FD_CONF_PATH : "/etc/freeDiameter/mme.conf",
 
     DEFAULT_PAGING_DRX : "v64",
 #RELATIVE_CAPACITY : 255,
@@ -64,7 +64,7 @@ All configuration is same except SGW field. See the configuration file if SGW's 
 
   HSS :
   {
-    FD_CONF_PATH : "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/hss.conf",
+    FD_CONF_PATH : "/etc/freeDiameter/hss.conf",
   }
 
   SGW :
@@ -90,7 +90,7 @@ All configuration is same except SGW field. See the configuration file if SGW's 
 
   PGW :
   {
-    FD_CONF_PATH : "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/pgw.conf",
+    FD_CONF_PATH : "/etc/freeDiameter/pgw.conf",
 
     NETWORK :
     {
@@ -117,7 +117,7 @@ All configuration is same except SGW field. See the configuration file if SGW's 
 
   PCRF :
   {
-    FD_CONF_PATH : "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/pcrf.conf",
+    FD_CONF_PATH : "/etc/freeDiameter/pcrf.conf",
   }
 
 }
@@ -138,7 +138,7 @@ SGW does not require Network information for MME and PGW, You only need to speci
 
 ```json
 {
-  LOG_PATH : "/Users/acetcom/Documents/git/nextepc/install/var/log/nextepc.log",
+  LOG_PATH : "/var/log/nextepc.log",
   TRACE:
   {
     GTP: 1,
@@ -171,7 +171,7 @@ Run the first SGW.
 
 ```json
 {
-  LOG_PATH : "/Users/acetcom/Documents/git/nextepc/install/var/log/nextepc.log",
+  LOG_PATH : "/var/log/nextepc.log",
   TRACE:
   {
     GTP: 1,
