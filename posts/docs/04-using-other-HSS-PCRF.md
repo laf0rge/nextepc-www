@@ -38,13 +38,13 @@ openssl ca -cert cacert.pem -keyfile cakey.pem -in pgw.csr.pem \
 
 ## Freediameter Configuration File.
 
-  * etc/freeDiameter/mme.conf
+  * /etc/freeDiameter/mme.conf
 ```json
 TLS_Cred="/etc/freeDiameter/mme.cert.pem","/etc/freeDiameter/mme.key.pem";
 TLS_CA="/etc/freeDiameter/cacert.pem";
 ```
 
-  * etc/freeDiameter/mme.conf
+  * /etc/freeDiameter/mme.conf
 ```json
 TLS_Cred="/etc/freeDiameter/pgw.cert.pem","/etc/freeDiameter/pgw.key.pem";
 TLS_CA="/etc/freeDiameter/cacert.pem";
