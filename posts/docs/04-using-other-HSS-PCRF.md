@@ -33,13 +33,13 @@ openssl ca -cert cacert.pem -keyfile cakey.pem -in pgw.csr.pem -out pgw.cert.pem
 ## Freediameter Configuration File.
 
   * etc/freeDiameter/mme.conf
-```
+```json
 TLS_Cred = "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/mme.cert.pem", "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/mme.key.pem";
 TLS_CA = "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/cacert.pem";
 ```
 
   * etc/freeDiameter/mme.conf
-```
+```json
 TLS_Cred = "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/pgw.cert.pem", "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/pgw.key.pem";
 TLS_CA = "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/cacert.pem";
 ```

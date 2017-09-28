@@ -182,6 +182,7 @@ const Paragraph = styled('p')`
 `
 
 const CodeBlock = styled('pre')`
+  max-width:700px;
   margin: 50px 0;
   font-size: 1.2em;
   padding: 5px 20px;
