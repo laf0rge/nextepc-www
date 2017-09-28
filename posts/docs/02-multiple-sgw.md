@@ -126,10 +126,10 @@ All configuration is same except SGW field. See the configuration file if SGW's 
 The MME maps to the SGW in a round-robin manner when the UE is attached. Let's run four nodes except two SGWs.
 
 ```bash
-sudo ./mmed
-sudo ./pgwd
-sudo ./hssd
-sudo ./pcrfd
+./mmed
+./pgwd
+./hssd
+./pcrfd
 ```
 
 ## Host 2 (First SGW)
@@ -164,7 +164,7 @@ SGW does not require Network information for MME and PGW, You only need to speci
 Run the first SGW.
 
 ```bash
-sudo ./sgwd
+./sgwd
 ```
 
 ## Host 3 (Second SGW)
@@ -197,5 +197,5 @@ sudo ./sgwd
 Run the second SGW.
 
 ```bash
-sudo ./sgwd
+./sgwd
 ```

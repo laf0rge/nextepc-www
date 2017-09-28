@@ -93,7 +93,7 @@ Generally, to use NextEPC in several hosts, you must use an independent daemon c
 However, we are preparing a more convenient daemon named **epcd**. It enables to service all five nodes of NextEPC.
 
 ```bash
-sudo ./epcd
+./epcd
 ```
 
 Turn on your **eNodeB** and **Mobile**. Check Wireshark!

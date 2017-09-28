@@ -142,7 +142,7 @@ TLS_CA = "/Users/acetcom/Documents/git/nextepc/install/etc/freeDiameter/cacert.p
 ## Run MME, SGW, PGW
 
 ```bash
-sudo ./mmed
-sudo ./sgwd
-sudo ./pgwd
+./mmed
+./sgwd
+./pgwd
 ```

@@ -69,7 +69,7 @@ For example, if you want the IP aliasing address of *PGW* to be _10.1.35.254_, `
 
 Once you are done, run the testing script.
 ```bash
-sudo ./test/testepc
+./test/testepc
 ```
 You can see the simulated packet through **Wireshark**.  _(FILTER : s1ap || gtpv2 || diameter)_
 

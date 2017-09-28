@@ -99,10 +99,10 @@ All configuration is same except PGW field.
 The MME maps to the PGW from HSS Subscriber Information. As such, you need to fill PGW IP field of Subscriber Information using Web User Interface.  Let's run four nodes except two PGWs.
 
 ```bash
-sudo ./mmed
-sudo ./sgwd
-sudo ./hssd
-sudo ./pcrfd
+./mmed
+./sgwd
+./hssd
+./pcrfd
 ```
 
 Note that default PGW can be set in case PGW IP field is omitted in Subscriber Information. In this case, you need to add PGW.NETWORK fleid in the configuration file as shown below.
@@ -163,7 +163,7 @@ Note that default PGW can be set in case PGW IP field is omitted in Subscriber I
 Run the first PGW.
 
 ```bash
-sudo ./pgwd
+./pgwd
 ```
 
 ## Host 3 (Second SGW)
@@ -209,5 +209,5 @@ sudo ./pgwd
 Run the second PGW.
 
 ```bash
-sudo ./pgwd
+./pgwd
 ```
