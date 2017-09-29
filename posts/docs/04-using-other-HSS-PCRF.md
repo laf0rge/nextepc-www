@@ -12,41 +12,48 @@ If you use another vendor's HSS or PCRF product, you must generate a key and cer
 For the first time, you need to get CA certificate file. For example, `cacert.pem`. And then, `cakey.pem` is generated like the followings:
 
 ```bash
-openssl req -new -batch -x509 -days 3650 -nodes -newkey rsa:1024 \
-    -out cacert.pem -keyout cakey.pem \
-    -subj /CN=ca.localdomain/C=KO/ST=Seoul/L=Nowon/O=NextEPC/OU=Tests
+openssl req -new -batch -x509 -days 3650 -nodes \
+  -newkey rsa:1024 -out cacert.pem \
+  -keyout cakey.pem -subj \
+  /CN=ca.localdomain/C=KO/ST=Seoul/O=NextEPC
 ```
 
 The MME key and certificate for TLS connection to the HSS are generated as follows.
 
 ```bash
 openssl genrsa -out mme.key.pem 1024
-openssl req -new -batch -out mme.csr.pem -key mme.key.pem \
-    -subj /CN=mme.localdomain/C=KO/ST=Seoul/L=Nowon/O=NextEPC/OU=Tests
-openssl ca -cert cacert.pem -keyfile cakey.pem -in mme.csr.pem \
-    -out mme.cert.pem -outdir . -batch
+openssl req -new -batch -out mme.csr.pem \
+  -key mme.key.pem -subj \
+  /CN=mme.localdomain/C=KO/ST=Seoul/O=NextEPC
+openssl ca -cert cacert.pem -keyfile cakey.pem \
+  -in mme.csr.pem -out mme.cert.pem \
+  -outdir . -batch
 ```
 
 The PGW key and certificate are also generated as follows.
 ```bash
 openssl genrsa -out pgw.key.pem 1024
-openssl req -new -batch -out pgw.csr.pem -key pgw.key.pem \
-    -subj /CN=pgw.localdomain/C=KO/ST=Seoul/L=Nowon/O=NextEPC/OU=Tests
-openssl ca -cert cacert.pem -keyfile cakey.pem -in pgw.csr.pem \
-    -out pgw.cert.pem -outdir . -batch
+openssl req -new -batch -out pgw.csr.pem \
+  -key pgw.key.pem -subj \
+  /CN=pgw.localdomain/C=KO/ST=Seoul/O=NextEPC
+openssl ca -cert cacert.pem -keyfile cakey.pem \
+  -in pgw.csr.pem -out pgw.cert.pem \
+  -outdir . -batch
 ```
 
 ## Freediameter Configuration File.
 
   * /etc/freeDiameter/mme.conf
 ```json
-TLS_Cred="/etc/freeDiameter/mme.cert.pem","/etc/freeDiameter/mme.key.pem";
+TLS_Cred="/etc/freeDiameter/mme.cert.pem",
+         "/etc/freeDiameter/mme.key.pem";
 TLS_CA="/etc/freeDiameter/cacert.pem";
 ```
 
   * /etc/freeDiameter/mme.conf
 ```json
-TLS_Cred="/etc/freeDiameter/pgw.cert.pem","/etc/freeDiameter/pgw.key.pem";
+TLS_Cred="/etc/freeDiameter/pgw.cert.pem",
+         "/etc/freeDiameter/pgw.key.pem";
 TLS_CA="/etc/freeDiameter/cacert.pem";
 ```
 

@@ -13,35 +13,21 @@ We will describe this guide using **Ubuntu 16.04 LTS (64bit)**. You'll need to i
 The first step is to use **apt-get** to install all depedencies.
 
 ```bash
-sudo apt-get -y install gcc gdb make autoconf libtool pkg-config git
-sudo apt-get -y install libsctp-dev libgnutls-dev libgcrypt-dev
-sudo apt-get -y install libssl-dev libmongoc-dev libbson-dev mongodb
+sudo apt-get -y install git gcc flex bison make
+sudo apt-get -y install autoconf libtool pkg-config
+sudo apt-get -y install libsctp-dev libssl-dev
+sudo apt-get -y install libidn11-dev
+sudo apt-get -y install libgnutls-dev libgcrypt-dev
+sudo apt-get -y install libmongoc-dev libbson-dev
+sudo apt-get -y install mongodb
 ```
+
 ## Retrieve the latest version of the source package
 
 ```bash
 git clone https://github.com/acetcom/nextepc
 ```
-## Install the freeDiameter
 
-The **freeDiameter** does not provide a binary package for **Ubuntu 16.04 LTS (Xenial)**. You can install it by our binary package
-
-```bash
-cd nextepc/support/freeDiameter/packages/ubuntu/xenial
-sudo dpkg -i freediameter-common_1.2.1_amd64.deb
-sudo dpkg -i freediameter-dev_1.2.1_amd64.deb
-```
-
-or compile it manually.
-```bash
-sudo apt-get -y install mercurial cmake bison flex libidn11-dev
-hg clone http://www.freediameter.net/hg/freeDiameter
-mkdir fDbuild
-cd fDbuild
-cmake ../freeDiameter
-make
-sudo make install
-```
 ## Configure the build
 
 ```bash
