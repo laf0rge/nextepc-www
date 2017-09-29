@@ -6,7 +6,7 @@ page: guides
 
 This post will guide you on how to get installed with **NextEPC**. To date, **NextEPC** has been compiled and tested on GNU/Linux distributions(Debian, Ubuntu, Fedora, OpenSUSE) and FreeBSD.
 
-We will describe this guide using **Ubuntu 16.04 LTS (64bit)**. You'll need to install **Ubuntu** if you don't have it installed already. To get the latest Ubuntu version please visit the official Ubuntu website: [https://www.ubuntu.com/download/](https://www.ubuntu.com/download/). 
+We will describe this guide using **Ubuntu 16.04 LTS (Xenial)**. You'll need to install **Ubuntu** if you don't have it installed already. To get the latest Ubuntu version please visit the official Ubuntu website: [https://www.ubuntu.com/download/](https://www.ubuntu.com/download/). 
 
 ## Install the dependencies for building the source
 
@@ -16,7 +16,6 @@ The first step is to use **apt-get** to install all depedencies.
 sudo apt-get -y install git gcc flex bison make
 sudo apt-get -y install autoconf libtool pkg-config
 sudo apt-get -y install libsctp-dev libssl-dev
-sudo apt-get -y install libidn11-dev
 sudo apt-get -y install libgnutls-dev libgcrypt-dev
 sudo apt-get -y install libmongoc-dev libbson-dev
 sudo apt-get -y install mongodb
