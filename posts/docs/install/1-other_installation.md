@@ -4,7 +4,7 @@ order: 11
 page: docs
 ---
 
-As mentioned eariler, NextEPC is designed to work with both the **GNU/Linux and FreeBSD** families. Here's how to install NextEPC on other platforms.
+As mentioned eariler, NextEPC is designed to work with both the **GNU/Linux** and **FreeBSD** families. Here's how to install NextEPC on other platforms.
 
 ## CentOS 7
 
@@ -19,8 +19,7 @@ sudo yum -y install epel-release
 sudo yum -y install mongo-c-driver-devel
 ```
 
-Create a `/etc/yum.repos.d/mongodb-org-3.4.repo` file so that you can install Mong
-oDB directly, and then install it.
+Create a `/etc/yum.repos.d/mongodb-org-3.4.repo` file so that you can install Mongo DB directly, and then install it.
 >[mongodb-org-3.4]  
 >name=MongoDB Repository  
 >baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/ 
