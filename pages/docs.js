@@ -137,7 +137,7 @@ const Paragraph = styled('p')`
   color: #444;
   letter-spacing: -0.05px;
   line-height: 1.5em;
-  max-width: 750px;
+  max-width: 825px;
   margin: 0;
 
   & strong, & b {
@@ -154,7 +154,7 @@ const Paragraph = styled('p')`
 `
 
 const CodeBlock = styled('pre')`
-  max-width:725px;
+  max-width:800px;
   font-size: 1.2em;
   padding: 5px 20px;
   background: #f2f2f2;
