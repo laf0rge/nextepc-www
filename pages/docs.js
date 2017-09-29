@@ -3,7 +3,6 @@ import React, { Component } from  'react'
 import { injectGlobal, hydrate } from  'emotion'
 import styled from 'react-emotion'
 import Head from 'next/head'
-import Highlight from 'react-highlight'
 
 import withPost, { Content } from 'nextein/post'
 import { withPostsFilterBy, inCategory } from 'nextein/posts'
@@ -11,6 +10,7 @@ import { withPostsFilterBy, inCategory } from 'nextein/posts'
 import MainNavigation from '../components/navigation'
 import Navigation from '../components/docs/navigation'
 import Footer from '../components/footer'
+import Code from '../components/code'
 import withPageView from '../components/analytics'
 
 // Adds server generated styles to emotion cache.
@@ -21,76 +21,58 @@ if (typeof window !== 'undefined') {
 
 const withDocs = withPostsFilterBy(inCategory('docs', { includeSubCategories: true }))
 
-class Doc extends Component {
+const Doc = withPost(withDocs( ( { post: current, posts } ) => {
+  const post = current || posts[0]
+  
+  posts.sort((a, b) => a.data.order - b.data.order )
 
-  render() {
-    const {
-      posts,
-      post: current
-    } = this.props;
+  injectGlobal`
+    html, body {
+      margin: 0;
+      fontFamily: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", sans-serif;
+      fontWeight: 100
+    }
 
-    const post = current || posts[0]
+    a { 
+      color: #666; 
+      font-weight: 200;
+      text-decoration-color: #ddd;
+    }
+  `
 
-    posts.sort((a, b) => a.data.order - b.data.order )
+  return (
+    <Main>
+      <Head>
+        <title>NextEPC | Docs | {post.data.title}</title>
+      </Head>
 
-    injectGlobal`
-      html, body {
-        margin: 0;
-        fontFamily: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", sans-serif;
-        fontWeight: 100
-      }
+      <MainNavigation showHome title="documentation" styles={{ width: `100vw` }}/>
 
-      a { 
-        color: #666; 
-        font-weight: 200;
-        text-decoration-color: #ddd;
-      }
-    `
+      <Section>
+        <Side>
+          <Navigation docs={posts} post={post} />
+        </Side>
+        <Article>
+          <Category>{post.data.category}</Category>
+          <Title>{post.data.title}</Title>
+          <Content
+            {...post}
+            renderers={{
+              h2: MethodName,
+              code: Code,
+              p: Paragraph,
+              pre: CodeBlock,
+              ul: List
+            }}
+          />
+        </Article>
+      </Section>
+      <Footer />
+    </Main>
+  )
+}))
 
-    return (
-      <Main>
-        <Head>
-          <title>NextEPC | Docs | {post.data.title}</title>
-        </Head>
-
-        <MainNavigation showHome title="documentation" styles={{ width: `100vw` }}/>
-
-        <Section>
-          <Side>
-            <Navigation docs={posts} post={post} />
-          </Side>
-          <Article>
-            <Category>{post.data.category}</Category>
-            <Title>{post.data.title}</Title>
-            <Content
-              {...post}
-              renderers={{
-                h2: MethodName,
-                code: Code,
-                p: Paragraph,
-                pre: CodeBlock,
-                ul: List
-              }}
-            />
-          </Article>
-        </Section>
-        <Footer />
-      </Main>
-    )
-  }
-}
-
-export default withPageView(withPost(withDocs(Doc)))
-
-const Code = ({className = "", children}) => {
-  const [, lang] = className.split('-')
-  if (lang) {
-    return <Highlight className={className}>{children.join('')}</Highlight>
-  }
-
-  return <code className={className}>{children}</code>
-
-}
+export default withPageView(Doc)
 
 const Main = styled('main')`
   display: flex;
@@ -137,7 +119,7 @@ const Paragraph = styled('p')`
   color: #444;
   letter-spacing: -0.05px;
   line-height: 1.5em;
-  max-width: 825px;
+  max-width: 750px;
   margin: 0;
 
   & strong, & b {
@@ -154,7 +136,6 @@ const Paragraph = styled('p')`
 `
 
 const CodeBlock = styled('pre')`
-  max-width:800px;
   font-size: 1.2em;
   padding: 5px 20px;
   background: #f2f2f2;

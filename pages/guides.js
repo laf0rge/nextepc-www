@@ -3,13 +3,13 @@ import React, { Component } from  'react'
 import { css, injectGlobal, hydrate } from  'emotion'
 import styled from 'react-emotion'
 import Head from 'next/head'
-import Highlight from 'react-highlight'
 
 import withPost, { Content } from 'nextein/post'
 import { withPostsFilterBy, inCategory } from 'nextein/posts'
 
 import MainNavigation from '../components/navigation'
 import Navigation from '../components/guides/navigation'
+import Code from '../components/code'
 import Footer from '../components/footer'
 import withPageView from '../components/analytics'
 import Edit from '../components/guides/edit'
@@ -22,85 +22,66 @@ if (typeof window !== 'undefined') {
 
 const withGuides = withPostsFilterBy(inCategory('guides', { includeSubCategories: true }))
 
-class Guide extends Component {
+const Guide = withPost(withGuides( ( { post: current, posts: guides } ) => {
+  const post = current || guides[0]
+  const currIdx = guides.findIndex(guide => ( guide.data.title == post.data.title ))
+  const prev = guides[currIdx - 1]
+  const next = guides[currIdx + 1]
 
-  render() {
-    const {
-      posts: guides,
-      post: current
-    } = this.props;
+  injectGlobal`
+    html, body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", sans-serif;
+      fontWeight: 100
+    }
 
-    const post = current || guides[0]
-    const currIdx = guides.findIndex(guide => ( guide.data.title == post.data.title ))
-    const prev = guides[currIdx - 1]
-    const next = guides[currIdx + 1]
+    a { 
+      color: #666; 
+      font-weight: 200;
+      text-decoration-color: #ddd;
+    }
+  `
 
-    injectGlobal`
-      html, body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", sans-serif;
-        fontWeight: 100
-      }
+  return (
+    <Main>
+      <Head>
+        <title>NextEPC | Guides | {post.data.title}</title>
+      </Head>
 
-      a { 
-        color: #666; 
-        font-weight: 200;
-        text-decoration-color: #ddd;
-      }
-    `
+      <MainNavigation showHome title="guides" styles={{ width: `100vw` }}/>
+      
+      <Section>
+        <Side>
+          {/* <Logo><a href="/">NextEPC</a><Light>/guides</Light></Logo> */}
+          <Navigation guides={guides} post={post} />
+        </Side>
+        <Article>
+          <EditMe entry={post.data._entry} />
+          <Category>{post.data.category}</Category>
+          <Title>{post.data.title}</Title>
+          <Content {...post} renderers={{code: Code, p: Paragraph, pre: CodeBlock}}/>
+          <BottomNav>
+            <NavPrev>
+            {
+              prev &&
+             <a className="prev" href={prev.data.url}> <strong>&lt;</strong> Prev: {prev.data.title}</a>
+            }
+            </NavPrev>
+            <NavNext>
+            {
+              next &&
+              <a className="next" href={next.data.url}>Next: {next.data.title} <strong>&gt;</strong> </a>
+            }
+            </NavNext>
+          </BottomNav>
+        </Article>
+      </Section>
+      <Footer />
+    </Main>
+  )
+}))
 
-    return (
-      <Main>
-        <Head>
-          <title>NextEPC | Guides | {post.data.title}</title>
-        </Head>
-
-        <MainNavigation showHome title="guides" styles={{ width: `100vw` }}/>
-        
-        <Section>
-          <Side>
-            {/* <Logo><a href="/">NextEPC</a><Light>/guides</Light></Logo> */}
-            <Navigation guides={guides} post={post} />
-          </Side>
-          <Article>
-            <EditMe entry={post.data._entry} />
-            <Category>{post.data.category}</Category>
-            <Title>{post.data.title}</Title>
-            <Content {...post} renderers={{code: Code, p: Paragraph, pre: CodeBlock}}/>
-            <BottomNav>
-              <NavPrev>
-              {
-                prev &&
-              <a className="prev" href={prev.data.url}> <strong>&lt;</strong> Prev: {prev.data.title}</a>
-              }
-              </NavPrev>
-              <NavNext>
-              {
-                next &&
-                <a className="next" href={next.data.url}>Next: {next.data.title} <strong>&gt;</strong> </a>
-              }
-              </NavNext>
-            </BottomNav>
-          </Article>
-        </Section>
-        <Footer />
-      </Main>
-    )
-  }
-}
-
-export default withPageView(withPost(withGuides(Guide)))
-
-const Code = ({className = "", children}) => {
-  const [, lang] = className.split('-')
-  if (lang) {
-    return <Highlight className={className}>{children.join('')}</Highlight>
-  }
-
-  return <code className={className}>{children}</code>
-
-}
-
+export default withPageView(Guide)
 
 const Main = styled('main')`
   display: flex;
@@ -182,7 +163,7 @@ const Paragraph = styled('p')`
 `
 
 const CodeBlock = styled('pre')`
-  max-width:725px;
+  margin: 50px 0;
   font-size: 1.2em;
   padding: 5px 20px;
   background: #f2f2f2;
