@@ -1,6 +1,6 @@
 ---
 title: Activate Dedicated Bearer Context
-order: 1
+order: 31
 page: docs
 ---
 

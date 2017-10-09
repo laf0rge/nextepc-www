@@ -1,5 +1,5 @@
 ---
-title: Other Installation
+title: Installation
 order: 11
 page: docs
 ---

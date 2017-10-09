@@ -1,6 +1,6 @@
 ---
 title: Using Other HSS/PCRF
-order: 4
+order: 34
 page: docs
 ---
 
