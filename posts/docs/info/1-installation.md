@@ -1,6 +1,6 @@
 ---
 title: Installation
-order: 11
+order: 51
 page: docs
 ---
 

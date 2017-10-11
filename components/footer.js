@@ -11,6 +11,9 @@ export default () => {
         <a href="https://github.com/acetcom/nextepc">github.com/acetcom/<span>nextepc</span></a>
       </div>  
       <BuiltWithLove />
+      <div className={contact}>
+        <a href="mailto:contact@nextepc.org">Contact Us</a>
+      </div>  
     </Footer>
   )
 }
@@ -47,6 +50,27 @@ const Built = styled('div')`
   }
 `
 const github = css`
+  align-self: center;
+  flex-grow: 1;
+  text-align: center;
+
+  font-size: 14px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  &, & a, & a:visited, & a:hover {
+    color: #eee;
+    text-decoration: none;
+  }
+
+  & span {
+    font-weight: 600;
+    color: #f63;
+  }
+`
+
+const contact = css`
   align-self: center;
   flex-grow: 1;
   text-align: center;

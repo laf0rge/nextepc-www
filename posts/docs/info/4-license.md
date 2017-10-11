@@ -1,8 +1,19 @@
 ---
 title: License
-order: 14
+order: 54
 page: docs
 ---
+
+
+## Copyright and License
+
+#
+Copyright © 2017 - Sukchan Lee, Jinyoung Park, Jihoon Lee, and Gwangseok Kim  
+All rights reserved.  
+#
+The source code of **NextEPC** is licensed under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version. See [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/) or LICENSE included in the source code package itself. The information detailed here is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+## Linking with the followings
 
 - [APR(Apache Portable Runtime)](https://apr.apache.org/)
     - License : [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)
@@ -42,14 +53,9 @@ page: docs
 
 
 - [CryptoMobile](https://github.com/mitshell/CryptoMobile)
-    - License : Unknown
+    - License : Unspecified
 
 
-- [Node.JS](https://nodejs.org)
-    - Web User Interface is built with the help of open sources in [package.json](https://github.com/acetcom/nextepc/tree/master/webui/package.json)
+## Web User Interface
 
-
-- [NextEPC](http://nextepc.org)
-    - License : [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
-    - All other [CODE](https://github.com/acetcom/nextepc) except the above list
-
+- See [package.json](https://github.com/acetcom/nextepc/tree/master/webui/package.json) file. 
