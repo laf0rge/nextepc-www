@@ -8,7 +8,7 @@ page: docs
 ## Copyright and License
 
 #
-Copyright © 2017 - Sukchan Lee, Jinyoung Park, Jihoon Lee, and Gwangseok Kim  
+Copyright © 2017 - Sukchan Lee, Jinyoung Park, Jihoon Brandon Lee, and Gwangseok Kim  
 All rights reserved.  
 #
 The source code of **NextEPC** is licensed under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version. See [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/) or LICENSE included in the source code package itself. The information detailed here is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
