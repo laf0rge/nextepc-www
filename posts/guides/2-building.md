@@ -23,7 +23,7 @@ sudo apt-get -y install mongodb
 
 ## Retrieve the latest version of the source package
 
-Download the latest source [nextepc-0.1.0.tar.gz](https://github.com/acetcom/nextepc/archive/v0.1.0.tar.gz) or,
+Download the latest source [nextepc-0.1.1.tar.gz](https://github.com/acetcom/nextepc/archive/v0.1.1.tar.gz) or,
 
 ```bash
 git clone https://github.com/acetcom/nextepc
