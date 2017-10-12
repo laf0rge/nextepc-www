@@ -1,19 +1,44 @@
 
 import React from 'react'
-import styled from 'emotion/react'
+import styled, { css } from 'react-emotion'
+import { inCategory } from 'nextein/posts'
 
-export default ({ docs, post }) => {  
+export default ({ docs, post }) => {
+  const about = docs.filter(inCategory('docs/about'))
+  const install = docs.filter(inCategory('docs/install'))
+  const config = docs.filter(inCategory('docs/config'))
   return (
     <Nav>
+      {about.length && <Separator>About</Separator>}
       {
-        docs.map((doc, idx) => {
+        about.map((doc, idx) => {
           const { data } = doc
           const active = post.data.url === data.url
           return (
-            <a  key={`doc-nav-${idx}`} className={active ? 'active' : ''} href={data.url}>{data.title}</a>
+            <Item key={`doc-nav-${idx}`} className={active && 'active'} href={data.url}>{data.title}</Item>
           )
         })
       }
+      {install.length && <Separator>Install</Separator>}
+      {
+        install.map((doc, idx) => {
+          const { data } = doc
+          const active = post.data.url === data.url
+          return (
+            <Item key={`doc-nav-${idx}`} className={active && 'active'} href={data.url}>{data.title}</Item>
+          )
+        })
+      }      
+      {config.length && <Separator>Config</Separator>}
+      {
+        config.map((doc, idx) => {
+          const { data } = doc
+          const active = post.data.url === data.url
+          return (
+            <Item key={`doc-nav-${idx}`} className={active && 'active'} href={data.url}>{data.title}</Item>
+          )
+        })
+      }      
     </Nav>
   )
 }
@@ -21,31 +46,39 @@ export default ({ docs, post }) => {
 const Nav = styled('nav')`
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-install: center;
   align-items: stretch;
+`
+
+const Separator = styled('div')`
+  padding: 7px 15px;
+  border-left: 5px solid transparent;
+  flex: 1;
+  font-size: .8em;
+  font-weight: 600;
+  color: #212121;
+  background: #eee;
+  text-transform: uppercase;
+`
+
+const Item = styled('a')`
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #999;
+  border-left: 5px solid transparent;
+  flex: 1;
   
-  > * {
-    padding: 10px 20px;
-  }
-
-  & a {
-    text-decoration: none;
-    color: #999;
-    border-left: 5px solid transparent;
-    flex: 1;
-    margin-right: 20px;
-  }
-
-  & a.active, & a.active:hover {
-    color: #212121;
-    background-color: #e4e4e4;
-    border-left: 5px solid #f63;
-  }
-
-  & a:hover {
+  &:hover {
     color: #212121;
     background-color: #f4f4f4;
     border-left: 5px solid #ccc;
   }
 
+  &.active,
+  &.active:hover {
+    color: #212121;
+    background-color: #e4e4e4;
+    border-left: 5px solid #f63;    
+  }
+  
 `

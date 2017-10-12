@@ -1,7 +1,6 @@
 
 import React, { Component } from  'react'
-import { css, injectGlobal, hydrate } from  'emotion'
-import styled from 'react-emotion'
+import styled, { css, injectGlobal, hydrate } from 'react-emotion'
 import Head from 'next/head'
 
 import withPost, { Content } from 'nextein/post'
@@ -32,7 +31,7 @@ const Guide = withPost(withGuides( ( { post: current, posts: guides } ) => {
     html, body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", sans-serif;
-      fontWeight: 100
+      font-weight: 100;
     }
 
     a { 
@@ -52,7 +51,6 @@ const Guide = withPost(withGuides( ( { post: current, posts: guides } ) => {
       
       <Section>
         <Side>
-          {/* <Logo><a href="/">NextEPC</a><Light>/guides</Light></Logo> */}
           <Navigation guides={guides} post={post} />
         </Side>
         <Article>
@@ -64,13 +62,13 @@ const Guide = withPost(withGuides( ( { post: current, posts: guides } ) => {
             <NavPrev>
             {
               prev &&
-             <a className="prev" href={prev.data.url}> <strong>&lt;</strong> Prev: {prev.data.title}</a>
+             <a className="prev" href={prev.data.url}><div className="nav-title">Previous</div><div className="article-title"> {prev.data.title}</div></a>
             }
             </NavPrev>
             <NavNext>
             {
               next &&
-              <a className="next" href={next.data.url}>Next: {next.data.title} <strong>&gt;</strong> </a>
+              <a className="next" href={next.data.url}><div className="nav-title">Next</div><div className="article-title"> {next.data.title}</div></a>
             }
             </NavNext>
           </BottomNav>
@@ -94,8 +92,6 @@ const Section = styled('section')`
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  padding-bottom: 100px;
-
   & p + h2 {
     margin-top: 40px;
   }
@@ -103,12 +99,14 @@ const Section = styled('section')`
 
 const Side = styled('side')`
   flex: 1;
+  border-right: 1px solid #eee;
 `
 
 const Article = styled('article')`
   position: relative;
   flex: 4;
-  padding-top: 60px;
+  width: 1px; // freaking width to get the Article to not expand
+  padding: 60px 0 0 60px;
 `
 
 const EditMe = styled(Edit)`
@@ -176,6 +174,22 @@ const BottomNav = styled('div')`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: stretch;
+  background: #eee;
+  border-top: 2px solid #e0e0e0;
+  margin-left: -60px;
+  padding: 50px 0;
+
+  .nav-title {
+    font-size: .7em;
+    text-transform: uppercase;
+    letter-spacing: .2em;    
+  }
+
+  .article-title {
+    font-size: 1.5em;
+    font-weight: 300;
+  }
 
   & a {
     text-decoration: none;
@@ -183,8 +197,11 @@ const BottomNav = styled('div')`
     font-size: 1.1em;
   }
 `
-const NavPrev = styled('div')``
+const NavPrev = styled('div')`
+  padding-left: 30px;
+`
 
 const NavNext = styled('div')`
   padding-right: 30px;
+  text-align: right;
 `

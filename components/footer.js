@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'emotion/react'
+import styled, { css } from 'react-emotion'
 
 import Github from './icons/github'
 
@@ -18,7 +18,7 @@ export default () => {
   )
 }
 
-const BuiltWithLove = ({ by }) => (
+const BuiltWithLove = () => (
   <Built>
     Built with <span>♥︎</span> and <span>nextepc</span> by <a href="https://github.com/acetcom">/<span>acetcom</span></a>, <a href="https://github.com/jyounggo">/<span>jyounggo</span></a>, <a href="https://github.com/brandonjlee">/<span>brandonjlee</span></a>, and <a href="https://github.com/anoveth">/<span>anoveth</span></a>
   </Built>
@@ -38,12 +38,12 @@ const Built = styled('div')`
   text-align: center;
   font-size: 14px;
   padding: 10px;
-  &, & a, & a:visited, & a:hover {
+  &, a, a:visited, a:hover {
     color: #eee;
     text-decoration: none;
   }
 
-  & span {
+  span {
     font-weight: 600;
     color: #f63;
     
@@ -59,12 +59,12 @@ const github = css`
   display: flex;
   flex-direction: row;
 
-  &, & a, & a:visited, & a:hover {
+  &, a, a:visited, a:hover {
     color: #eee;
     text-decoration: none;
   }
 
-  & span {
+  span {
     font-weight: 600;
     color: #f63;
   }
@@ -80,12 +80,12 @@ const contact = css`
   display: flex;
   flex-direction: row;
 
-  &, & a, & a:visited, & a:hover {
+  &, a, a:visited, a:hover {
     color: #eee;
     text-decoration: none;
   }
 
-  & span {
+  span {
     font-weight: 600;
     color: #f63;
   }
