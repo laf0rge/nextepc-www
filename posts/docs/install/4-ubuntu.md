@@ -1,8 +1,21 @@
 ---
 title: Ubuntu
-order: 23
+order: 24
 page: docs
 ---
+
+## Ubuntu 17.04 (Zesty)
+
+In this _Ubuntu_ release, the package name of GNUTLS has been changed from `libgnutls-dev` to `libgnutls28-dev`. Install dependencies as follows and build NextEPC.
+
+```bash
+sudo apt-get -y install git gcc flex bison make
+sudo apt-get -y install autoconf libtool pkg-config
+sudo apt-get -y install libsctp-dev libssl-dev
+sudo apt-get -y install libgnutls28-dev libgcrypt-dev
+sudo apt-get -y install libmongoc-dev libbson-dev
+sudo apt-get -y install mongodb
+```
 
 ## Ubuntu 14.04 (Trusty)
 
@@ -32,17 +45,3 @@ sudo ldconfig
 ```
 
 Finally, you can compile and install the NextEPC as described in the Installation Guide.
-
-
-## Ubuntu 17.04 (Zesty)
-
-In this _Ubuntu_ release, the package name of GNUTLS has been changed from `libgnutls-dev` to `libgnutls28-dev`. Install dependencies as follows and build NextEPC.
-
-```bash
-sudo apt-get -y install git gcc flex bison make
-sudo apt-get -y install autoconf libtool pkg-config
-sudo apt-get -y install libsctp-dev libssl-dev
-sudo apt-get -y install libgnutls28-dev libgcrypt-dev
-sudo apt-get -y install libmongoc-dev libbson-dev
-sudo apt-get -y install mongodb
-```
