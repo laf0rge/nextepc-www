@@ -23,7 +23,9 @@ sudo make install
 ```
 
 Setup your network. For example,
+- sudo ifconfig tun0 create
 - sudo ifconfig tun0 inet 45.45.0.1 45.45.0.1 netmask 255.255.0.0
+- sudo ifconfig em0 alias 10.1.35.214 netmask 255.255.255.255
 - sudo ifconfig em0 alias 10.1.35.215 netmask 255.255.255.255
 - sudo ifconfig em0 alias 10.1.35.216 netmask 255.255.255.255
 - sudo ifconfig em0 alias 10.1.35.217 netmask 255.255.255.255
@@ -37,6 +39,6 @@ sudo service mongod start
 
 Run NextEPC.
 ```bash
-sudo ./nextepc
+sudo ./epcd
 ```
 (this should require sudo due to access `/dev/tun0`)
