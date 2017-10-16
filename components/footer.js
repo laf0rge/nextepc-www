@@ -12,7 +12,7 @@ export default () => {
       </div>  
       <BuiltWithLove />
       <div className={contact}>
-        <a href="mailto:contact@nextepc.org">Contact Us</a>
+        <a href="mailto:brandon.jihoon@gmail.com">Contact Us</a>
       </div>  
     </Footer>
   )

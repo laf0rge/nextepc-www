@@ -9,7 +9,7 @@ export default ({ title, showHome = false, ...props }) => {
   const isDoc = (title === 'documentation')
   return (
     <Nav {...props}>
-      { title && <Title><img src="/static/next.png" width="50" height="20"/><Light>/{title}</Light></Title> }
+      { title && <Title>NextEPC<Light>/{title}</Light></Title> }
       { showHome && <Item href="/">Home</Item>}
       <Item href="/guides" className={isGuide && 'active'}>Guides</Item>
       <Item href="/docs" className={isDoc && 'active'}>Docs</Item>

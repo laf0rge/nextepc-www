@@ -6,8 +6,7 @@
   "repository": "https://github.com/acetcom/nextepc-www",
   "scripts": {
     "dev": "nextein",
-    "export": "nextein build && nextein export",
-    "now": "cd out && now alias --token=$NOW $(now --static --no-clipboard --token=$NOW --public) nextepc",
+    "now": "nextein build && nextein export && cd out && now alias --token=$NOW $(now --static --no-clipboard --token=$NOW --public) nextepc",
     "github": "nextein build && nextein export -o docs && git checkout -- docs/CNAME && git checkout -- docs/.nojekyll && git add docs && git commit -m \"deploy it\" && git push origin master"
   },
   "keywords": [],
