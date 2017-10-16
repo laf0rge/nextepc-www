@@ -6,9 +6,16 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get -y install nodejs
 ```
 
+## Retrieve the latest version of the source package
+
+```bash
+git clone https://github.com/acetcom/nextepc-www
+```
+
 ## Install the dependencies for building the source
 
 ```bash
+cd nextepc-www
 npm install
 ```
 
