@@ -18,7 +18,7 @@ To get the latest **Node.js** and **NPM** version, you can visit the official **
 Or, you can install _Node.js_ and _NPM_ on **Ubuntu** as follows:
 
 ```bash
-sudo apt-get -y install curl
+sudo apt-get -y install curl gnupg
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get -y install nodejs
 ```
